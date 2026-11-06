@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>손지후 · 프로필 페이지 기획안</title>
+<meta name="theme-color" content="#060a0c" id="metaTheme">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<script>(function(){var t='dark';try{var s=localStorage.getItem('sj-theme');if(s)t=s}catch(e){}var q=(location.search.match(/[?&]theme=(light|dark)/)||[])[1];if(q)t=q;document.documentElement.setAttribute('data-theme',t)})();</script>
+<style>
+:root{--ink:#060a0c;--panel:#0d1418;--card:#0f171c;--ice:#35e0c0;--ice-ink:#04140f;--orange:#ff5a1f;
+--white:#f2f7f8;--body:#a4b4ba;--muted:#7d8f96;--muted2:#5b6b72;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.18)}
+html[data-theme="light"]{--ink:#eef2f4;--panel:#f7fafb;--card:#fff;--ice:#0a7a63;--orange:#c2410c;
+--white:#0a161b;--body:#3d5058;--muted:#5a6d75;--muted2:#718690;--line:rgba(10,22,27,.12);--line2:rgba(10,22,27,.22)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--white);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.75;
+-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(900px 480px at 50% -160px,rgba(53,224,192,.16),transparent 70%)}
+html[data-theme="light"] body::before{background:radial-gradient(900px 480px at 50% -160px,rgba(10,122,99,.10),transparent 70%)}
+.wrap{position:relative;z-index:1;max-width:840px;margin:0 auto;padding:56px 24px 96px}
+.tgl{position:fixed;top:18px;right:18px;z-index:9;width:40px;height:40px;display:grid;place-items:center;
+background:var(--card);border:1px solid var(--line2);color:var(--white);cursor:pointer}
+.tgl svg{width:17px;height:17px}
+@media print{.tgl{display:none}}
+.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);padding:6px 10px;
+font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.tag i{width:5px;height:5px;border-radius:50%;background:var(--ice);box-shadow:0 0 9px var(--ice)}
+h1{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(30px,7vw,46px);line-height:1.02;
+letter-spacing:-.04em;margin:20px 0 0;text-transform:uppercase}
+h1 span{display:block;color:var(--ice);font-size:.62em;letter-spacing:-.02em;margin-top:6px}
+.lede{font-size:14px;color:var(--body);margin-top:16px;max-width:56ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.meta span{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+border:1px solid var(--line);padding:5px 8px;color:var(--muted)}
+h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:16px;letter-spacing:-.01em;text-transform:uppercase;
+margin:44px 0 4px;display:flex;align-items:baseline;gap:10px}
+h2 b{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--ice);letter-spacing:.1em;font-weight:500}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent);transform:translateY(-4px)}
+h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:13.5px;margin:24px 0 8px}
+p{font-size:13.5px;color:var(--body);margin:10px 0}
+strong{color:var(--white);font-weight:600}
+ul{margin:10px 0 10px 18px}li{font-size:13px;color:var(--body);margin:6px 0}
+li::marker{color:var(--ice)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12.5px}
+th{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+color:var(--muted);font-weight:500;text-align:left;padding:0 8px 9px 0;border-bottom:1px solid var(--line2)}
+td{padding:10px 8px 10px 0;border-bottom:1px solid var(--line);color:var(--body);vertical-align:top}
+td:first-child{color:var(--white);font-weight:500;white-space:nowrap}
+.ok{color:var(--ice);font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em}
+.wait{color:var(--orange);font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em}
+.card{background:var(--card);border:1px solid var(--line);padding:18px;margin:16px 0}
+.card p:first-child{margin-top:0}.card p:last-child{margin-bottom:0}
+.grid{display:grid;gap:14px;margin:16px 0}
+@media(min-width:640px){.grid.two{grid-template-columns:1fr 1fr}}
+.step{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .n{flex:none;width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--line2);
+font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--ice)}
+.step b{display:block;font-size:13px;color:var(--white)}
+.step span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+.foot{margin-top:52px;padding-top:16px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;
+gap:12px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.12em;
+text-transform:uppercase;color:var(--muted2)}
+.foot a{color:var(--ice);text-decoration:none}
+</style>
+</head>
+<body>
+<button class="tgl" id="tgl" aria-label="테마"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg></button>
+<div class="wrap">
+<div class="tag"><i></i>기획안 · v1</div>
+<h1>SON JIHOO<span>손지후 선수 프로필 페이지</span></h1>
+<p class="lede">부산마리나(2023–2024) → 창원데블스 → 수원이글스(2025–2026). U13 이하 4시즌, 116편 영상을 한 페이지에 모으는 개인 프로필 앱. 고도현 선수 페이지와 동일한 구조에, 이 선수만의 데이터 확보 상태를 반영합니다.</p>
+<div class="meta"><span>2026.11.06</span><span>PWA · GitHub Pages</span><span>KO / EN</span><span>3 clubs · 116 videos</span></div>
+
+<h2><b>01</b>목표</h2>
+<p>이 페이지의 목적은 세 가지입니다.</p>
+<ul>
+<li><strong>기록 보존</strong> — 흩어져 있는 경기 영상과 대회 기록을 한 곳에 고정. 유소년 시즌은 다시 재현되지 않습니다.</li>
+<li><strong>제시 자료</strong> — 코치·감독·선수 선발 관계자에게 링크 하나로 커리어를 보여주는 용도.</li>
+<li><strong>가족 기록</strong> — 시즌별 성장을 시간순으로 남기는 개인 아카이브.</li>
+</ul>
+<p>따라서 "화려한 소개"보다 <strong>검증 가능한 기록</strong>을 우선합니다. 확인되지 않은 수치는 비워두고 대기(pending)로 표시합니다.</p>
+
+<h2><b>02</b>핵심 콘셉트</h2>
+<div class="card">
+<p><strong>“Player file.”</strong> 스카우팅 리포트 형식. 선수를 광고하는 페이지가 아니라, 소속·등록·경기 기록을 담는 문서. 모바일 앱처럼 5개 탭으로 나누고, 각 항목 옆에 근거를 붙입니다.</p>
+</div>
+<p>고도현 페이지와 <strong>동일한 시스템</strong>을 씁니다 — 같은 탭 구조, 같은 카드·표·타임라인, 같은 설치 방식. 다른 점은 두 가지입니다.</p>
+<div class="grid two">
+<div class="card"><h3 style="margin-top:0">정체성</h3><p>액센트를 아이스블루 → <strong>마린 틸(#35e0c0)</strong>로. 부산마리나의 바다 이미지에서 가져왔고, 현재 소속(수원이글스)은 <strong>오렌지</strong>로 구분합니다.</p></div>
+<div class="card"><h3 style="margin-top:0">정직성</h3><p>확인되지 않은 항목은 숨기지 않고 <strong>“— pending”</strong>으로 노출합니다. 빈칸을 그럴듯한 숫자로 채우지 않습니다.</p></div>
+</div>
+
+<h2><b>03</b>정보 구조</h2>
+<table>
+<tr><th>탭</th><th>내용</th><th>상태</th></tr>
+<tr><td>Home</td><td>이름·소속·4대 지표·최초 득점 카드·프로필 표</td><td class="ok">완료</td></tr>
+<tr><td>Career</td><td>연도별 타임라인 4단계 + 소속 클럽 표</td><td class="ok">완료</td></tr>
+<tr><td>Record</td><td>시즌 표 · 문서화된 경기 · 미확인 항목</td><td class="ok">완료</td></tr>
+<tr><td>Film</td><td>116편 영상(골클립 34 · 중계 82) · 검색 · 소속/시즌 필터</td><td class="ok">완료</td></tr>
+<tr><td>Honors</td><td>주장단 역할 · 대회 결과 · 개인 수상</td><td class="ok">완료</td></tr>
+</table>
+<p>상단 고정 바(이름·테마·설치·검색), 하단 5탭, 해시 라우팅, 통합 검색 시트까지 고도현 페이지와 동일한 동작입니다.</p>
+
+<h2><b>04</b>데이터 확보 현황</h2>
+<p>이번 조사에서 <strong>확인된 것</strong>과 <strong>아직 확인되지 않은 것</strong>을 분리했습니다.</p>
+<table>
+<tr><th>항목</th><th>확인 내용</th><th>출처</th></tr>
+<tr><td>2023 시즌</td><td>부산마리나 U9, 3학년 <strong>부주장</strong>. 제4회 부산아이스하키협회장배(2023.12.07) 아이기스전 <strong>동점골</strong>, 대회 <strong>2골</strong></td><td>부산마리나 구단 경기 리포트</td></tr>
+<tr><td>2024 시즌</td><td>경북협회장배(7월, 스파르탄스·아울스), 제13회 부산시장배(10.03, 춘천타이거스), 전주 주니어리그 중계 확인</td><td>아이스핫키 방송 목록</td></tr>
+<tr><td>2025–26</td><td>수원이글스 소속. 경기도 유소년 대회·경기도의장배 U12 출전</td><td>경기 중계 목록</td></tr>
+<tr><td>생년·번호·포지션</td><td><strong>2014년생 · No.97 · RD(라이트 디펜스)</strong></td><td>보호자 확인</td></tr>
+<tr><td>개인 스탯</td><td class="wait">미확보</td><td>KIHA 등록 기록 필요</td></tr>
+<tr><td>2025–26 수원이글스</td><td>U12·U10·U9 <strong>69경기</strong> 중계 확보 (2025년 18 · 2026년 51)</td><td>아이스핫키 등 중계 채널</td></tr>
+<tr><td>골클립</td><td><strong>34편</strong> — 레츠하키·SNHL·토탈하키제이 태그, 본인 확인 완료</td><td>하키티비</td></tr>
+</table>
+
+<h2><b>05</b>추가 확보가 필요한 자료</h2>
+<p>아래는 <strong>공개 검색으로는 얻을 수 없어</strong> 직접 요청해야 하는 항목입니다.</p>
+<div class="step"><div class="n">1</div><div><b>대한아이스하키협회 선수 등록 기록</b><span>시즌별 출전·득점·도움. 보호자 또는 구단을 통한 조회가 필요합니다.</span></div></div>
+<div class="step"><div class="n">2</div><div><b>수원이글스 등번호·포지션</b><span>구단 소개 자료 또는 팀 사진으로 확인.</span></div></div>
+<div class="step"><div class="n">3</div><div><b>2023–24 부산마리나 대회 결과 전체</b><span>협회장배·시장배 순위, 팀 성적표.</span></div></div>
+<div class="step"><div class="n">4</div><div><b>개인 수상 이력</b><span>우수선수·득점상 등. 확인 전에는 페이지에 표기하지 않습니다.</span></div></div>
+
+<h2><b>06</b>영상 아카이브</h2>
+<p>총 <strong>116편</strong>을 연결했습니다 — 골클립 34편, 부산마리나 12편, 창원데블스 1편, 수원이글스 2025 시즌 18편, 2026 시즌 51편. 수원이글스는 <strong>2025년 1월부터 2026년 11월까지</strong> U13 이하 경기를 전부 훑었습니다.</p>
+<div class="card"><p><strong>확인 완료 —</strong> “#손지후 #골클립”으로 태그된 34편(레츠하키·SNHL·토탈하키제이)은 모두 본인 영상으로 확인되어 Goal clips 그룹으로 편입했습니다. 성인부·아마추어 리그(KAHL·AIHF·성인부 시장배)는 제외했습니다.</p></div>
+
+<h2><b>07</b>디자인 시스템</h2>
+<table>
+<tr><th>토큰</th><th>다크</th><th>라이트</th></tr>
+<tr><td>배경</td><td>#060a0c</td><td>#eef2f4</td></tr>
+<tr><td>액센트</td><td>#35e0c0</td><td>#0a7a63</td></tr>
+<tr><td>현재 소속</td><td>#ff5a1f</td><td>#c2410c</td></tr>
+<tr><td>제목</td><td colspan="2">Archivo 800–900 · 대문자 · 자간 −0.04em</td></tr>
+<tr><td>본문</td><td colspan="2">Noto Sans KR 400 · 13.5px</td></tr>
+<tr><td>라벨·수치</td><td colspan="2">JetBrains Mono · 자간 0.14em</td></tr>
+</table>
+<p>모서리 0px, 1px 헤어라인, 링크 다이어그램 배경. 다크/라이트 두 테마를 상단 버튼으로 전환하며 선택은 저장됩니다.</p>
+
+<h2><b>08</b>제작 순서</h2>
+<div class="step"><div class="n">1</div><div><b>1차 빌드 (완료)</b><span>확인된 기록으로 5탭 앱 · 영상 15편 · 테마 2종 · 설치 기능.</span></div></div>
+<div class="step"><div class="n">2</div><div><b>2차 보강 (자료 수령 후)</b><span>협회 기록·등번호·수상 반영, 시즌 표 채우기.</span></div></div>
+<div class="step"><div class="n">3</div><div><b>배포</b><span>GitHub Pages 업로드 → 홈 화면 설치 → 주소 공유.</span></div></div>
+
+<h2><b>09</b>확인 부탁드릴 것</h2>
+<div class="card">
+<p><strong>해결됨 —</strong> 생년(2014) · 등번호(97) · 포지션(RD) · U13 이하 범위 · 골클립 본인 여부.<br><br>
+<strong>남은 것 —</strong><br>
+<strong>1.</strong> 생년월일 중 ‘일’ (현재 연도만 확인).<br>
+<strong>2.</strong> 창원데블스 소속 시기 — 2024–25 사이로 보이나 정확한 기간 미확인.<br>
+<strong>3.</strong> 시즌별 출전·득점·도움 (KIHA 등록 기록).<br>
+<strong>4.</strong> 개인 수상 이력 유무.</p>
+</div>
+
+<div class="foot"><span>손지후 · 프로필 기획안 · v1</span><a href="index.html">앱 열기 →</a></div>
+</div>
+<script>
+var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>';
+var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg>';
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('sj-theme',t)}catch(e){}
+document.getElementById('tgl').innerHTML=(t==='light'?MOON:SUN);
+var m=document.getElementById('metaTheme');if(m)m.setAttribute('content',t==='light'?'#eef2f4':'#060a0c')}
+applyTheme(document.documentElement.getAttribute('data-theme')||'dark');
+document.getElementById('tgl').onclick=function(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')};
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "name": "SON JIHOO · Player File",
+  "short_name": "SON JIHOO",
+  "description": "Player file for Son Jihoo — Busan Marina 2023–24, Suwon Eagles 2025–26.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#08090a",
+  "theme_color": "#060a0c",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Film archive",
+      "url": "./index.html#film"
+    },
+    {
+      "name": "Season record",
+      "url": "./index.html#record"
+    }
+  ]
+}
